@@ -5,3 +5,7 @@ Content-Type: application/json
     "email": "asdf@gmail.com",
     "password": "asdf"
 }
+
+###
+
+GET http://localhost:3000/auth/1
