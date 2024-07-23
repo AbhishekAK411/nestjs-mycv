@@ -1,3 +1,4 @@
+### Create a user with email and password
 POST http://localhost:3000/auth/signup
 Content-Type: application/json
 
@@ -6,6 +7,19 @@ Content-Type: application/json
     "password": "asdf"
 }
 
-###
+### Get user by ID
+GET http://localhost:3000/auth/3
 
-GET http://localhost:3000/auth/1
+### Get all users with a particular email address.
+GET http://localhost:3000/auth?email=asdf@gmail.com
+
+### Update user by ID
+PATCH http://localhost:3000/auth/3
+Content-Type: application/json
+
+{
+    "password": "aaa"
+}
+
+### Delete user by ID
+DELETE http://localhost:3000/auth/2
