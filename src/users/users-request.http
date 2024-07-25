@@ -1,9 +1,9 @@
-### Create a user with email and password
+### Sign up user with email and password
 POST http://localhost:3000/auth/signup
 Content-Type: application/json
 
 {
-    "email": "guesttest@gmail.com",
+    "email": "test@gmail.com",
     "password": "test"
 }
 
@@ -12,12 +12,20 @@ POST http://localhost:3000/auth/signin
 Content-Type: application/json
 
 {
-    "email": "guesttest@gmail.com",
+    "email": "test@gmail.com",
     "password": "test"
 }
 
+### Get the current user
+GET http://localhost:3000/auth/whoami
+
+### sign out logged in user
+POST http://localhost:3000/auth/signout
+
+
+
 ### Get user by ID
-GET http://localhost:3000/auth/3
+GET http://localhost:3000/auth/9
 
 ### Get all users with a particular email address.
 GET http://localhost:3000/auth?email=asdf@gmail.com
