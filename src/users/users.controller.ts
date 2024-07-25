@@ -15,11 +15,15 @@ export class UsersController {
     
     @Post('signup')
     signup(@Body() body: CreateUserDto) {
-        this.authService.signup(body.email, body.password);
+        return this.authService.signup(body.email, body.password);
+    }
+
+    @Post('signin')
+    signin(@Body() body: CreateUserDto) {
+        return this.authService.signin(body.email, body.password);
     }
 
     // @UseInterceptors(new SerializeInterceptor(UserDto))
-    
     @Get('/:id')
     async findUser(@Param('id') id: string){
         // console.log("handler is running.");
