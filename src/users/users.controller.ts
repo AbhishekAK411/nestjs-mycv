@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, Patch, Delete, Query, NotFoundException, Session } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Patch, Delete, Query, NotFoundException, Session, UseGuards } from '@nestjs/common';
 import { CreateUserDto } from './dtos/create-user.dto';
 import { UpdateUserDto } from './dtos/update-user.dto';
 import { UsersService } from './users.service';
@@ -7,6 +7,7 @@ import { UserDto } from './dtos/user.dto';
 import { AuthService } from './auth.service';
 import { CurrentUser } from './decorators/current-user.decorator';
 import { User } from './user.entity';
+import { AuthGuard } from 'src/guards/auth.guard';
 
 
 @Controller('auth')
@@ -31,9 +32,11 @@ export class UsersController {
     // }
 
     @Get('/whoami')
+    @UseGuards(AuthGuard)
     whoAmI(@CurrentUser() user: User) {
         return user;
     }
+
     @Post('/signout')
     signOut(@Session() session: any) {
         session.userId = null;
